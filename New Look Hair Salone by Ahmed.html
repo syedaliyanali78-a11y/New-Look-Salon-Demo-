@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Look Hair Salone by Ahmed | Premium Luxury Studio Faisalabad</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Google Fonts: Cinzel & Plus Jakarta Sans -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Alpine.js CDN for Dynamic State -->
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            50: '#fffbeb',
+                            100: '#fef3c7',
+                            200: '#fde68a',
+                            300: '#fcd34d',
+                            400: '#fbbf24',
+                            500: '#d4af37',
+                            600: '#ca8a04',
+                            700: '#a16207',
+                            800: '#854d0e',
+                            900: '#713f12',
+                            glow: '#fef08a'
+                        },
+                        obsidian: {
+                            950: '#040405',
+                            900: '#0A0A0C',
+                            850: '#101014',
+                            800: '#15151B',
+                            700: '#1E1E26',
+                            600: '#2A2A36'
+                        }
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'spin-slow': 'spin 15s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #0A0A0C;
+            color: #F1F5F9;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF8D6 0%, #D4AF37 50%, #8E6516 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #F5D77F 0%, #D4AF37 50%, #996515 100%);
+        }
+
+        .gold-border {
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .glass-card {
+            background: rgba(21, 21, 27, 0.65);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 175, 55, 0.18);
+        }
+
+        .glass-card-hover {
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-card-hover:hover {
+            transform: translateY(-8px);
+            border-color: rgba(212, 175, 55, 0.55);
+            box-shadow: 0 20px 40px -15px rgba(212, 175, 55, 0.25);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #040405;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #D4AF37, #713f12);
+            border-radius: 4px;
+        }
+
+        .ambient-glow {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(140px);
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="selection:bg-gold-500 selection:text-black">
+
+    <!-- Ambient Lights -->
+    <div class="ambient-glow w-[550px] h-[550px] bg-gold-500/10 -top-32 -left-32"></div>
+    <div class="ambient-glow w-[650px] h-[650px] bg-gold-600/10 top-[35%] right-0"></div>
+    <div class="ambient-glow w-[500px] h-[500px] bg-gold-500/10 bottom-10 left-10"></div>
+
+    <!-- Navigation Bar -->
+    <header x-data="{ open: false }" class="fixed top-0 left-0 w-full z-50 bg-obsidian-950/85 backdrop-blur-2xl border-b border-gold-500/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center gap-3.5 group">
+                <div class="relative w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-gold-500 via-gold-200 to-gold-700 shadow-lg shadow-gold-500/20 group-hover:scale-105 transition-transform duration-300">
+                    <div class="w-full h-full rounded-full overflow-hidden bg-black flex items-center justify-center">
+                        <svg class="w-full h-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <radialGradient id="navGlow" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#2a333d"/>
+                                    <stop offset="100%" stop-color="#0a0c0f"/>
+                                </radialGradient>
+                                <linearGradient id="navGold" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#FFF3B0"/>
+                                    <stop offset="50%" stop-color="#D4AF37"/>
+                                    <stop offset="100%" stop-color="#996515"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="200" cy="200" r="200" fill="url(#navGlow)"/>
+                            <path d="M200 80 C150 80 130 120 130 170 C130 210 150 230 200 230 C250 230 270 210 270 170 C270 120 250 80 200 80 Z" fill="#1e252d"/>
+                            <path d="M120 380 C120 280 150 250 200 250 C250 250 280 280 280 380 Z" fill="#11161b"/>
+                            <path d="M160 250 L145 380 M240 250 L255 380" stroke="#a36e38" stroke-width="8" stroke-linecap="round"/>
+                            <text x="200" y="325" font-family="'Cinzel', serif" font-size="16" fill="#8899a6" text-anchor="middle" font-weight="bold">Ahmed Jani</text>
+                            <text x="70" y="200" font-family="'Cinzel', serif" font-size="32" fill="url(#navGold)" font-style="italic" font-weight="bold">Ahmed</text>
+                        </svg>
+                    </div>
+                </div>
+                <div>
+                    <span class="font-cinzel font-black text-lg sm:text-xl tracking-wider text-white block leading-none">NEW LOOK</span>
+                    <span class="text-[9px] tracking-[0.25em] text-gold-400 uppercase font-bold block mt-1">HAIR SALONE BY AHMED</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-8 text-xs font-semibold tracking-widest text-gray-300 uppercase">
+                <a href="#home" class="hover:text-gold-400 transition-colors">Home</a>
+                <a href="#about" class="hover:text-gold-400 transition-colors">About Ahmed</a>
+                <a href="#services" class="hover:text-gold-400 transition-colors">Services</a>
+                <a href="#portfolio" class="hover:text-gold-400 transition-colors">TikTok Works</a>
+                <a href="#booking" class="hover:text-gold-400 transition-colors">Book Now</a>
+                <a href="#location" class="hover:text-gold-400 transition-colors">Location</a>
+            </nav>
+
+            <!-- WhatsApp Action -->
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="https://wa.me/923269081572?text=Hello%20Ahmed!%20I%20want%20to%20book%20an%20appointment%20at%20New%20Look%20Hair%20Salone." 
+                   target="_blank" 
+                   class="px-6 py-2.5 rounded-full gold-gradient-bg text-obsidian-950 font-extrabold text-xs tracking-wider uppercase shadow-lg shadow-gold-500/20 hover:scale-105 transition-all duration-300 flex items-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>Quick Booking</span>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button @click="open = !open" class="lg:hidden text-gold-400 text-2xl p-2 focus:outline-none" aria-label="Toggle Navigation Menu">
+                <i x-show="!open" class="fa-solid fa-bars"></i>
+                <i x-show="open" class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div x-show="open" x-transition class="lg:hidden bg-obsidian-950/95 border-b border-gold-500/20 px-6 py-8 space-y-5">
+            <a @click="open = false" href="#home" class="block text-gray-200 hover:text-gold-400 font-semibold tracking-wider text-sm">HOME</a>
+            <a @click="open = false" href="#about" class="block text-gray-200 hover:text-gold-400 font-semibold tracking-wider text-sm">ABOUT AHMED</a>
+            <a @click="open = false" href="#services" class="block text-gray-200 hover:text-gold-400 font-semibold tracking-wider text-sm">LUXURY SERVICES</a>
+            <a @click="open = false" href="#portfolio" class="block text-gray-200 hover:text-gold-400 font-semibold tracking-wider text-sm">TIKTOK PORTFOLIO</a>
+            <a @click="open = false" href="#booking" class="block text-gray-200 hover:text-gold-400 font-semibold tracking-wider text-sm">BOOK APPOINTMENT</a>
+            <a @click="open = false" href="#location" class="block text-gray-200 hover:text-gold-400 font-semibold tracking-wider text-sm">SALON LOCATION</a>
+            <a href="https://wa.me/923269081572" target="_blank" class="block w-full text-center py-3 rounded-xl gold-gradient-bg text-black font-bold text-xs uppercase tracking-widest">
+                <i class="fa-brands fa-whatsapp mr-2"></i> WhatsApp Booking
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-28 pb-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Left Info -->
+            <div class="lg:col-span-7 text-center lg:text-left z-10" data-aos="fade-right" data-aos-duration="1000">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-gold-500/30 text-gold-300 text-xs font-semibold tracking-widest uppercase mb-6">
+                    <i class="fa-solid fa-crown text-gold-400"></i>
+                    <span>Faisalabad's Premier Grooming Destination</span>
+                </div>
+
+                <h1 class="font-cinzel text-4xl sm:text-6xl xl:text-7xl font-extrabold text-white tracking-tight leading-[1.15] mb-6">
+                    Redefining Male <br>
+                    <span class="gold-gradient-text">Grooming & Elegance</span>
+                </h1>
+
+                <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-light leading-relaxed mb-8">
+                    Step into <strong class="text-white font-medium">New Look Hair Salone</strong> by Ahmed Jani. Experience custom haircuts, precision beard styling, facial therapy, and keratin treatments crafted with perfection.
+                </p>
+
+                <!-- Hero Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                    <a href="#booking" class="w-full sm:w-auto px-8 py-4 rounded-full gold-gradient-bg text-obsidian-950 font-extrabold text-xs tracking-widest uppercase shadow-xl shadow-gold-500/25 hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-calendar-check text-base"></i>
+                        <span>Book Your Appointment</span>
+                    </a>
+                    <a href="#services" class="w-full sm:w-auto px-8 py-4 rounded-full glass-card hover:bg-gold-500/10 text-white font-semibold text-xs tracking-widest uppercase border border-gold-500/30 hover:border-gold-500 transition-all flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-scissors text-gold-400"></i>
+                        <span>View Treatments & Rates</span>
+                    </a>
+                </div>
+
+                <!-- Live TikTok Stats -->
+                <div class="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-gold-500/20 max-w-lg mx-auto lg:mx-0">
+                    <div>
+                        <span class="font-cinzel text-2xl sm:text-3xl font-bold text-gold-400 block">526.2K+</span>
+                        <span class="text-[11px] text-gray-400 uppercase tracking-wider">TikTok Likes</span>
+                    </div>
+                    <div>
+                        <span class="font-cinzel text-2xl sm:text-3xl font-bold text-gold-400 block">11.5K+</span>
+                        <span class="text-[11px] text-gray-400 uppercase tracking-wider">Followers</span>
+                    </div>
+                    <div>
+                        <span class="font-cinzel text-2xl sm:text-3xl font-bold text-gold-400 block">100%</span>
+                        <span class="text-[11px] text-gray-400 uppercase tracking-wider">Custom Cuts</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Profile Card Showcase -->
+            <div class="lg:col-span-5 relative z-10 flex justify-center" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="relative w-full max-w-md animate-float">
+                    <!-- Glow Behind Badge -->
+                    <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-gold-500/30 via-gold-300/10 to-transparent blur-2xl opacity-80"></div>
+                    
+                    <div class="relative glass-card p-6 sm:p-8 rounded-3xl border border-gold-500/30 text-center">
+                        
+                        <!-- Avatar Ring Container -->
+                        <div class="relative w-48 h-48 sm:w-56 sm:h-56 mx-auto mb-6">
+                            <div class="absolute inset-0 rounded-full bg-gradient-to-r from-gold-400 via-gold-200 to-gold-600 animate-spin-slow"></div>
+                            <div class="absolute inset-1 rounded-full bg-obsidian-950"></div>
+                            
+                            <!-- Profile SVG Avatar -->
+                            <div class="absolute inset-2 rounded-full overflow-hidden bg-obsidian-850 shadow-2xl flex items-center justify-center">
+                                <svg class="w-full h-full" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="200" cy="200" r="200" fill="#151b22"/>
+                                    <path d="M200 70 C140 70 120 120 120 170 C120 215 145 235 200 235 C255 235 280 215 280 170 C280 120 260 70 200 70 Z" fill="#252e38"/>
+                                    <path d="M140 140 C130 90 170 50 220 50 C260 50 285 80 275 120 C265 100 240 80 200 80 C160 80 145 110 140 140 Z" fill="#0d1117"/>
+                                    <path d="M110 390 C110 270 145 245 200 245 C255 245 290 270 290 390 Z" fill="#181f26"/>
+                                    <path d="M155 245 L140 390 M245 245 L260 390" stroke="#b87d43" stroke-width="9" stroke-linecap="round"/>
+                                    <circle cx="155" cy="255" r="7" fill="#d4af37"/>
+                                    <circle cx="245" cy="255" r="7" fill="#d4af37"/>
+                                    <text x="200" y="335" font-family="'Cinzel', serif" font-size="18" fill="#718096" text-anchor="middle" font-weight="bold">Ahmed Jani</text>
+                                    <text x="75" y="195" font-family="'Cinzel', serif" font-size="34" fill="url(#navGold)" font-style="italic" font-weight="bold">Ahmed</text>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <h2 class="font-cinzel font-bold text-2xl text-white tracking-wide mb-1">AHMED JANI</h2>
+                        <p class="text-gold-400 font-semibold text-xs tracking-widest uppercase mb-4">Master Hair Stylist & Hair Artist</p>
+                        
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-obsidian-950/80 border border-gold-500/30 text-xs text-gray-300 mb-6">
+                            <i class="fa-brands fa-tiktok text-gold-400"></i>
+                            <a href="https://www.tiktok.com/@new_look804" target="_blank" class="hover:underline text-gold-300 font-semibold">@new_look804</a>
+                        </div>
+
+                        <a href="https://wa.me/923269081572" target="_blank"
+                           class="w-full py-3 rounded-xl gold-gradient-bg text-obsidian-950 font-bold text-xs uppercase tracking-widest shadow-lg shadow-gold-500/20 hover:opacity-90 transition-opacity flex items-center justify-center gap-2">
+                            <i class="fa-solid fa-paper-plane"></i>
+                            <span>Chat Directly with Ahmed</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-obsidian-900 relative border-t border-gold-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="relative rounded-3xl overflow-hidden glass-card p-4 border border-gold-500/30">
+                        <div class="relative aspect-[4/5] rounded-2xl overflow-hidden bg-obsidian-800 flex items-center justify-center">
+                            <svg class="w-full h-full" viewBox="0 0 400 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect width="400" height="480" fill="#11161b"/>
+                                <circle cx="200" cy="240" r="180" fill="#182029"/>
+                                <path d="M200 100 C145 100 125 145 125 195 C125 240 150 260 200 260 C250 260 275 240 275 195 C275 145 255 100 200 100 Z" fill="#28323e"/>
+                                <path d="M100 450 C100 310 140 280 200 280 C260 280 300 310 300 450 Z" fill="#1a2129"/>
+                                <path d="M150 280 L135 450 M250 280 L265 450" stroke="#b87d43" stroke-width="10" stroke-linecap="round"/>
+                                <text x="200" y="370" font-family="'Cinzel', serif" font-size="20" fill="#8899a6" text-anchor="middle" font-weight="bold">Ahmed Jani</text>
+                                <text x="80" y="210" font-family="'Cinzel', serif" font-size="40" fill="url(#navGold)" font-style="italic" font-weight="bold">Ahmed</text>
+                            </svg>
+                        </div>
+                        <div class="absolute bottom-8 right-8 gold-gradient-bg text-obsidian-950 px-5 py-3 rounded-2xl font-bold shadow-xl text-center">
+                            <span class="font-cinzel text-xl block leading-none">FAISALABAD</span>
+                            <span class="text-[9px] uppercase tracking-widest">Master Studio</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7" data-aos="fade-left" data-aos-duration="1000">
+                    <span class="text-xs font-bold tracking-[0.3em] text-gold-400 uppercase mb-2 block">Crafting Signature Looks</span>
+                    <h2 class="font-cinzel text-3xl sm:text-5xl font-extrabold text-white mb-6 leading-tight">
+                        Meet The Master Artist Behind <br>
+                        <span class="gold-gradient-text">New Look Hair Salone</span>
+                    </h2>
+                    
+                    <p class="text-gray-300 leading-relaxed font-light mb-6 text-base">
+                        Ahmed Jani has established himself as one of Faisalabad's top stylists, specializing in modern razor fades, luxury beard design, keratin smoothing, and customized facial treatments. With a viral presence on TikTok (<strong class="text-gold-400">@new_look804</strong>), Ahmed delivers tailored grooming sessions for every client.
+                    </p>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+                        <div class="glass-card p-4 rounded-xl border-gold-500/20">
+                            <i class="fa-solid fa-scissors text-gold-400 text-xl mb-2"></i>
+                            <h3 class="font-cinzel font-bold text-white text-base">Custom Hair Cuts</h3>
+                            <p class="text-xs text-gray-400 mt-1">Sculpted to match individual bone structure and personal style.</p>
+                        </div>
+                        <div class="glass-card p-4 rounded-xl border-gold-500/20">
+                            <i class="fa-solid fa-sparkles text-gold-400 text-xl mb-2"></i>
+                            <h3 class="font-cinzel font-bold text-white text-base">Protein & Skin Radiance</h3>
+                            <p class="text-xs text-gray-400 mt-1">Treatments designed for hair strength and glowing skin.</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-6">
+                        <a href="#booking" class="px-8 py-3.5 rounded-full gold-gradient-bg text-obsidian-950 font-extrabold text-xs uppercase tracking-widest shadow-lg shadow-gold-500/20">
+                            Reserve Experience
+                        </a>
+                        <a href="https://wa.me/923269081572" target="_blank" class="text-gold-400 font-semibold text-xs tracking-wider uppercase hover:underline flex items-center gap-2">
+                            <i class="fa-brands fa-whatsapp text-base"></i> Direct Contact
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section with Dynamic Tabs -->
+    <section id="services" class="py-24 bg-obsidian-850 relative" x-data="{ tab: 'all' }">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12" data-aos="fade-up">
+                <span class="text-xs font-bold tracking-[0.3em] text-gold-400 uppercase mb-2 block">Service Menu</span>
+                <h2 class="font-cinzel text-3xl sm:text-5xl font-extrabold text-white mb-4">LUXURY TREATMENTS</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-gold-500 to-transparent mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="flex flex-wrap justify-center gap-3 mb-12" data-aos="fade-up" data-aos-delay="100">
+                <button @click="tab = 'all'" :class="tab === 'all' ? 'gold-gradient-bg text-black font-bold' : 'glass-card text-gray-300 hover:text-white'" class="px-6 py-2.5 rounded-full text-xs uppercase tracking-wider transition-all">All Treatments</button>
+                <button @click="tab = 'hair'" :class="tab === 'hair' ? 'gold-gradient-bg text-black font-bold' : 'glass-card text-gray-300 hover:text-white'" class="px-6 py-2.5 rounded-full text-xs uppercase tracking-wider transition-all">Hair Styling</button>
+                <button @click="tab = 'beard'" :class="tab === 'beard' ? 'gold-gradient-bg text-black font-bold' : 'glass-card text-gray-300 hover:text-white'" class="px-6 py-2.5 rounded-full text-xs uppercase tracking-wider transition-all">Beard Design</button>
+                <button @click="tab = 'skin'" :class="tab === 'skin' ? 'gold-gradient-bg text-black font-bold' : 'glass-card text-gray-300 hover:text-white'" class="px-6 py-2.5 rounded-full text-xs uppercase tracking-wider transition-all">Facial & Skin Care</button>
+                <button @click="tab = 'vip'" :class="tab === 'vip' ? 'gold-gradient-bg text-black font-bold' : 'glass-card text-gray-300 hover:text-white'" class="px-6 py-2.5 rounded-full text-xs uppercase tracking-wider transition-all">VIP Packages</button>
+            </div>
+
+            <!-- Cards Container -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Card 1 -->
+                <div x-show="tab === 'all' || tab === 'hair'" data-aos="fade-up" class="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-scissors"></i>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-bold text-white mb-3">Signature Master Cut</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6">
+                            Precision haircut, wash, scalp massage, blow dry, and custom hair setting.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gold-500/20 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] text-gray-400 block uppercase">Rate</span>
+                            <span class="font-cinzel text-xl font-bold text-gold-400">PKR 1,500</span>
+                        </div>
+                        <a href="#booking" class="px-4 py-2 rounded-full bg-gold-500/10 text-gold-300 hover:bg-gold-500 hover:text-black font-semibold text-xs transition-colors">Book</a>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div x-show="tab === 'all' || tab === 'beard'" data-aos="fade-up" data-aos-delay="100" class="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-user-ninja"></i>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-bold text-white mb-3">Beard Sculpting & Razor Edge</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6">
+                            Steam treatment, custom razor shape lining, beard oil conditioning massage.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gold-500/20 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] text-gray-400 block uppercase">Rate</span>
+                            <span class="font-cinzel text-xl font-bold text-gold-400">PKR 800</span>
+                        </div>
+                        <a href="#booking" class="px-4 py-2 rounded-full bg-gold-500/10 text-gold-300 hover:bg-gold-500 hover:text-black font-semibold text-xs transition-colors">Book</a>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div x-show="tab === 'all' || tab === 'skin'" data-aos="fade-up" data-aos-delay="200" class="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-spa"></i>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-bold text-white mb-3">Royal Facial & Skin Therapy</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6">
+                            Deep pore cleansing, charcoal exfoliation, whitening mask, and facial massage.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gold-500/20 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] text-gray-400 block uppercase">Rate</span>
+                            <span class="font-cinzel text-xl font-bold text-gold-400">PKR 2,500</span>
+                        </div>
+                        <a href="#booking" class="px-4 py-2 rounded-full bg-gold-500/10 text-gold-300 hover:bg-gold-500 hover:text-black font-semibold text-xs transition-colors">Book</a>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div x-show="tab === 'all' || tab === 'hair'" data-aos="fade-up" class="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center text-2xl mb-6">
+                            <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        </div>
+                        <h3 class="font-cinzel text-xl font-bold text-white mb-3">Protein Keratin Treatment</h3>
+                        <p class="text-gray-400 text-xs leading-relaxed mb-6">
+                            Deep protein restoration, frizz control, long-lasting smoothness and straightening.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gold-500/20 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] text-gray-400 block uppercase">Rate</span>
+                            <span class="font-cinzel text-xl font-bold text-gold-400">PKR 4,500</span>
+                        </div>
+                        <a href="#booking" class="px-4 py-2 rounded-full bg-gold-500/10 text-gold-300 hover:bg-gold-500 hover:text-black font-semibold text-xs transition-colors">Book</a>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div x-show="tab === 'all' || tab === 'vip'" data-aos="fade-up" data-aos-delay="100" class="glass-card glass-card-hover p-8 rounded-3xl flex flex-col justify-between border-gold-500/50 relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 w-28 h-28 bg-gold-500/20 rounded-full blur-xl"></div>
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-gold-500 text-black flex items-center justify-center text-2xl mb-6 font-bold shadow-lg shadow-gold-500/30">
+                            <i class="fa-solid fa-gem"></i>
+                        </div>
+                        <span class="text-[10px] font-bold tracking-widest text-gold-400 uppercase bg-gold-500/10 px-3 py-1 rounded-full border border-gold-500/30 inline-block mb-3">VIP Package</span>
+                        <h3 class="font-cinzel text-xl font-bold text-white mb-3">Groom & VIP Makeover</h3>
+                        <p class="text-gray-300 text-xs leading-relaxed mb-6">
+                            Haircut, Beard Styling, Gold Facial, Keratin Treatment, Hair Dye, & Scalp Massage.
+                        </p>
+                    </div>
+                    <div class="pt-4 border-t border-gold-500/20 flex items-center justify-between">
+                        <div>
+                            <span class="text-[10px] text-gray-400 block uppercase">Package Rate</span>
+                            <span class="font-cinzel text-xl font-bold text-gold-400">PKR 8,500</span>
+                        </div>
+                        <a href="#booking" class="px-5 py-2 rounded-full gold-gradient-bg text-black font-bold text-xs hover:opacity-90 transition-opacity">Book VIP</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- TikTok Video Portfolio -->
+    <section id="portfolio" class="py-24 bg-obsidian-900 border-t border-gold-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12" data-aos="fade-up">
+                <div>
+                    <span class="text-xs font-bold tracking-[0.3em] text-gold-400 uppercase mb-2 block">Viral Cuts</span>
+                    <h2 class="font-cinzel text-3xl sm:text-5xl font-extrabold text-white">TIKTOK PORTFOLIO</h2>
+                </div>
+                <a href="https://www.tiktok.com/@new_look804" target="_blank" class="mt-4 md:mt-0 text-gold-400 font-semibold text-xs tracking-widest uppercase hover:underline flex items-center gap-2">
+                    <i class="fa-brands fa-tiktok text-base"></i> Visit @new_look804 TikTok &rarr;
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Video Card 1 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-gold-500/20 group" data-aos="zoom-in">
+                    <div class="relative aspect-[3/4] bg-obsidian-800 overflow-hidden flex items-center justify-center">
+                        <div class="w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold-900/40 via-obsidian-850 to-obsidian-950 flex flex-col items-center justify-center p-6 text-center">
+                            <i class="fa-solid fa-play-circle text-6xl text-gold-400 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span class="mt-4 text-xs font-bold tracking-widest text-white uppercase">Razor Fade & Beard Sharp Line</span>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md border border-gold-500/30 px-3 py-1 rounded-full text-xs text-gold-300 font-bold">
+                            <i class="fa-solid fa-eye text-gold-400 mr-1"></i> 1.3M Views
+                        </div>
+                    </div>
+                    <div class="p-4 bg-obsidian-950">
+                        <p class="text-xs text-white font-semibold">Custom Cut & Beard Edge</p>
+                        <p class="text-[10px] text-gray-400">@new_look804</p>
+                    </div>
+                </div>
+
+                <!-- Video Card 2 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-gold-500/20 group" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="relative aspect-[3/4] bg-obsidian-800 overflow-hidden flex items-center justify-center">
+                        <div class="w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold-900/40 via-obsidian-850 to-obsidian-950 flex flex-col items-center justify-center p-6 text-center">
+                            <i class="fa-solid fa-play-circle text-6xl text-gold-400 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span class="mt-4 text-xs font-bold tracking-widest text-white uppercase">Hair Transformation & Keratin Shine</span>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md border border-gold-500/30 px-3 py-1 rounded-full text-xs text-gold-300 font-bold">
+                            <i class="fa-solid fa-eye text-gold-400 mr-1"></i> 1.1M Views
+                        </div>
+                    </div>
+                    <div class="p-4 bg-obsidian-950">
+                        <p class="text-xs text-white font-semibold">Protein Repair & Styling</p>
+                        <p class="text-[10px] text-gray-400">@new_look804</p>
+                    </div>
+                </div>
+
+                <!-- Video Card 3 -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-gold-500/20 group" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="relative aspect-[3/4] bg-obsidian-800 overflow-hidden flex items-center justify-center">
+                        <div class="w-full h-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gold-900/40 via-obsidian-850 to-obsidian-950 flex flex-col items-center justify-center p-6 text-center">
+                            <i class="fa-solid fa-play-circle text-6xl text-gold-400 group-hover:scale-110 transition-transform duration-300"></i>
+                            <span class="mt-4 text-xs font-bold tracking-widest text-white uppercase">Red Laser Precision Haircut</span>
+                        </div>
+                        <div class="absolute top-4 left-4 bg-black/70 backdrop-blur-md border border-gold-500/30 px-3 py-1 rounded-full text-xs text-gold-300 font-bold">
+                            <i class="fa-solid fa-eye text-gold-400 mr-1"></i> 455.9K Views
+                        </div>
+                    </div>
+                    <div class="p-4 bg-obsidian-950">
+                        <p class="text-xs text-white font-semibold">Precision Beard Sculpting</p>
+                        <p class="text-[10px] text-gray-400">@new_look804</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Direct WhatsApp Booking -->
+    <section id="booking" class="py-24 bg-obsidian-850 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-up">
+            
+            <div class="glass-card p-8 sm:p-12 rounded-3xl border border-gold-500/30 shadow-2xl relative overflow-hidden">
+                <div class="text-center mb-10">
+                    <span class="text-xs font-bold tracking-[0.3em] text-gold-400 uppercase mb-2 block">Direct Reservation</span>
+                    <h2 class="font-cinzel text-3xl sm:text-4xl font-extrabold text-white mb-2">BOOK YOUR SLOT</h2>
+                    <p class="text-xs text-gray-400">Select your preferred date & time. The system formats your request straight to Ahmed's WhatsApp.</p>
+                </div>
+
+                <form id="bookingForm" onsubmit="handleWhatsAppBooking(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Full Name</label>
+                            <input type="text" id="clientName" required placeholder="e.g. Ali Khan" 
+                                   class="w-full px-4 py-3 rounded-xl bg-obsidian-950 border border-gold-500/20 text-white placeholder-gray-600 focus:outline-none focus:border-gold-500 transition-colors text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">WhatsApp Number</label>
+                            <input type="tel" id="clientPhone" required placeholder="e.g. 0300 1234567" 
+                                   class="w-full px-4 py-3 rounded-xl bg-obsidian-950 border border-gold-500/20 text-white placeholder-gray-600 focus:outline-none focus:border-gold-500 transition-colors text-sm">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        <div class="sm:col-span-1">
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Select Service</label>
+                            <select id="serviceType" class="w-full px-4 py-3 rounded-xl bg-obsidian-950 border border-gold-500/20 text-white focus:outline-none focus:border-gold-500 transition-colors text-sm">
+                                <option value="Signature Master Cut (PKR 1500)">Signature Cut (PKR 1,500)</option>
+                                <option value="Beard Sculpting (PKR 800)">Beard Sculpting (PKR 800)</option>
+                                <option value="Royal Facial Therapy (PKR 2500)">Royal Facial (PKR 2,500)</option>
+                                <option value="Protein Keratin (PKR 4500)">Keratin Treatment (PKR 4,500)</option>
+                                <option value="VIP Groom Makeover (PKR 8500)">VIP Package (PKR 8,500)</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Date</label>
+                            <input type="date" id="bookingDate" required 
+                                   class="w-full px-4 py-3 rounded-xl bg-obsidian-950 border border-gold-500/20 text-white focus:outline-none focus:border-gold-500 transition-colors text-sm">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Time Slot</label>
+                            <input type="time" id="bookingTime" required 
+                                   class="w-full px-4 py-3 rounded-xl bg-obsidian-950 border border-gold-500/20 text-white focus:outline-none focus:border-gold-500 transition-colors text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-300 uppercase tracking-wider mb-2">Special Request (Optional)</label>
+                        <textarea id="bookingNote" rows="3" placeholder="Specific hairstyle or custom requirements..." 
+                                  class="w-full px-4 py-3 rounded-xl bg-obsidian-950 border border-gold-500/20 text-white placeholder-gray-600 focus:outline-none focus:border-gold-500 transition-colors text-sm"></textarea>
+                    </div>
+
+                    <button type="submit" 
+                            class="w-full py-4 rounded-xl gold-gradient-bg text-obsidian-950 font-extrabold text-sm uppercase tracking-widest shadow-xl shadow-gold-500/25 hover:scale-[1.01] transition-transform flex items-center justify-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>SEND BOOKING TO AHMED VIA WHATSAPP</span>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="py-24 bg-obsidian-900 relative border-t border-gold-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-5" data-aos="fade-right">
+                    <span class="text-xs font-bold tracking-[0.3em] text-gold-400 uppercase mb-2 block">Visit Salone</span>
+                    <h2 class="font-cinzel text-3xl sm:text-5xl font-extrabold text-white mb-6">LOCATION & HOURS</h2>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-sm">Salon Address</h3>
+                                <p class="text-xs text-gray-400 mt-1 leading-relaxed">
+                                    Zulfiqar Ali Shahid Road, Lasani Puli near Khayaban Garden, Noorani Masjid Road, Faisalabad.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-sm">Direct Phone / WhatsApp</h3>
+                                <p class="text-xs text-gray-400 mt-1">+92 326 9081572</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/30 text-gold-400 flex items-center justify-center shrink-0">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-sm">Hours of Operation</h3>
+                                <p class="text-xs text-gray-400 mt-1">Open 7 Days: 11:00 AM – 11:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6 border-t border-gold-500/20">
+                        <a href="https://wa.me/923269081572" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 rounded-full gold-gradient-bg text-obsidian-950 font-extrabold text-xs uppercase tracking-widest">
+                            <i class="fa-solid fa-location-arrow"></i> Open Directions in WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Dark Map Embed Container -->
+                <div class="lg:col-span-7" data-aos="fade-left">
+                    <div class="glass-card p-3 rounded-3xl border border-gold-500/30 shadow-2xl">
+                        <div class="w-full h-[400px] rounded-2xl overflow-hidden bg-obsidian-850">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13618.36932470659!2d73.08!3d31.42!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x392242a895b35c05%3A0x6b45e9a4f22c1511!2sFaisalabad%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
+                                class="w-full h-full border-0 filter grayscale invert opacity-75" 
+                                allowfullscreen="" 
+                                loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-obsidian-950 border-t border-gold-500/20 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            
+            <div class="flex items-center justify-center gap-3 mb-6">
+                <div class="w-10 h-10 rounded-full p-[2px] bg-gradient-to-r from-gold-400 to-gold-600">
+                    <div class="w-full h-full rounded-full overflow-hidden bg-black flex items-center justify-center">
+                        <svg class="w-full h-full" viewBox="0 0 400 400" fill="none">
+                            <circle cx="200" cy="200" r="200" fill="#151b22"/>
+                            <text x="75" y="210" font-family="'Cinzel', serif" font-size="45" fill="#d4af37" font-style="italic" font-weight="bold">Ahmed</text>
+                        </svg>
+                    </div>
+                </div>
+                <span class="font-cinzel font-black text-xl text-white tracking-widest">NEW LOOK</span>
+            </div>
+
+            <p class="text-xs text-gray-400 max-w-md mx-auto mb-6">
+                New Look Hair Salone by Ahmed Jani &bull; Luxury Grooming Studio in Faisalabad.
+            </p>
+
+            <div class="flex justify-center gap-6 text-gold-400 text-xl mb-8">
+                <a href="https://www.tiktok.com/@new_look804" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://wa.me/923269081572" target="_blank" class="hover:text-white transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+
+            <p class="text-[11px] text-gray-600 tracking-wider">
+                &copy; 2026 New Look Hair Salone by Ahmed. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Init AOS Animations & WhatsApp Form Redirect Logic -->
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-quad'
+        });
+
+        document.getElementById('bookingDate').valueAsDate = new Date();
+
+        function handleWhatsAppBooking(e) {
+            e.preventDefault();
+            const name = document.getElementById('clientName').value;
+            const phone = document.getElementById('clientPhone').value;
+            const service = document.getElementById('serviceType').value;
+            const date = document.getElementById('bookingDate').value;
+            const time = document.getElementById('bookingTime').value;
+            const note = document.getElementById('bookingNote').value;
+
+            const message = `*NEW APPOINTMENT BOOKING*%0A%0A` +
+                            `*Client Name:* ${encodeURIComponent(name)}%0A` +
+                            `*Phone:* ${encodeURIComponent(phone)}%0A` +
+                            `*Service:* ${encodeURIComponent(service)}%0A` +
+                            `*Date:* ${encodeURIComponent(date)}%0A` +
+                            `*Time:* ${encodeURIComponent(time)}%0A` +
+                            (note ? `*Special Request:* ${encodeURIComponent(note)}%0A` : '') +
+                            `%0APlease confirm my appointment booking at New Look Hair Salone.`;
+
+            window.open(`https://wa.me/923269081572?text=${message}`, '_blank');
+        }
+    </script>
+</body>
+</html>
